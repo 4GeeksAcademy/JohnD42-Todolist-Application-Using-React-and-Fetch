@@ -1,12 +1,40 @@
+h1 {
+    color: rgba(188, 143, 143, 0.281)
+}
 
-/* 
+.bordered {
+    border: 1px solid lightgray
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
-*/
+.list {
+    box-shadow:
+    0 1px 1px rgba(0,0,0,0.15),
+    0 10px 0 -5px #eee,
+    0 10px 1px -4px rgba(0,0,0,0.15),
+    0 20px 0 -10px #eee,
+    0 20px 1px -9px rgba(0,0,0,0.15);
+}
+
+.light-text {
+    color: lightgray
+}
+
+
+
+i {
+    color: white
+}
+
+li:hover i:hover {
+    color: lightcoral;
+}
+
+li:hover i{
+    color: lightpink
+}

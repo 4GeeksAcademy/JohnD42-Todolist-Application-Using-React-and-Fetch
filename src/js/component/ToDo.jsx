@@ -6,7 +6,7 @@ const ToDo = (props) => {
     const id = props.id;
 
     return (
-        <li key={id} className="d-flex w-100 justify-content-between bordered d-inline-block pt-2 pb-2 p-4">
+        <li key={id} className="d-flex w-100 justify-content-between bordered d-inline-block pt-2 pb-2 p-4" id={id}>
             {label}
             <i className="fa-solid fa-x" onClick={deleteToDo}></i>
         </li>

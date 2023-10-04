@@ -18,7 +18,6 @@ const Home = () => {
 			if(!response.ok) {
 				throw new Error('there was an error', response.status)
 			}
-			console.log(todos)
 			return todos
 		} catch(error) {
 			console.log('there was an error',error)
@@ -48,15 +47,10 @@ const Home = () => {
 			}
 			})
 			.then(resp => {
-				console.log(resp.ok); 
 				if(!resp.ok) {
 					throw new Error ('error occurred',resp.status)
 				}
-				console.log(resp.status); 
 				return resp.json(); 
-			})
-			.then(data => {
-				console.log(data);
 			})
 			.catch(error => {
 				console.log(error);
@@ -70,22 +64,15 @@ const Home = () => {
 	const addToDo = (e) => {
 		if(e.key === 'Enter') {
 			if(input !== '') {
-				console.log('running addToDo')
 				setToDos(toDos.concat([{done: false, label: input, id:nextKey}]))
 				setInput('')
-				setNextKey(Math.max.apply(Math, toDoList.map((item) => item.id )) + 1);
+				setNextKey(Math.max.apply(Math, toDos.map((item) => item.id )) + 1);
 			}
 		}
 	}
 
 	const deleteToDo = (e) => {
-		console.log('running deleteToDo')
-		setToDos(toDos.filter(item => {
-			if (`${item.label}<i class="fa-solid fa-x"></i>` !== e.target.parentNode.innerHTML) {
-			return item
-		}
-		}))
-
+		setToDos(toDos.filter(item => item.id != e.target.parentNode.id))
 	}
 
 	return (

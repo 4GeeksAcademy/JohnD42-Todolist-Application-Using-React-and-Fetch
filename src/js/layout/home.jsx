@@ -28,16 +28,9 @@ const Home = () => {
 
 	useEffect( async () => {
 		const toDoList = await getToDos()
-		const list = toDoList.map((todo) => { 
-			return {done: false, id: todo.id, label: todo.label} })
-		let max = -99999
-		list.map(obj => {
-			if (obj.id > max) {
-				max = obj.id
-			}})
-		setNextKey(max + 1)
-		console.log(list)
-		setToDos(list)
+		setNextKey(Math.max.apply(Math, toDoList.map((item) => item.id )) + 1)
+		setToDos(toDoList)
+		
 		},[])
 
 	const updateAPIToDos = () => {
@@ -80,7 +73,7 @@ const Home = () => {
 				console.log('running addToDo')
 				setToDos(toDos.concat([{done: false, label: input, id:nextKey}]))
 				setInput('')
-				setNextKey(nextKey + 1);
+				setNextKey(Math.max.apply(Math, toDoList.map((item) => item.id )) + 1);
 			}
 		}
 	}
@@ -92,7 +85,7 @@ const Home = () => {
 			return item
 		}
 		}))
-		setNextKey(nextKey - 1);
+
 	}
 
 	return (
